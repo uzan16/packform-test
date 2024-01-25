@@ -1,0 +1,13 @@
+.v-input--density-comfortable .v-field--variant-plain {
+  --v-input-control-height: 48px;
+  --v-field-padding-top: 0px;
+  --v-field-padding-bottom: 12px;
+}
+
+.v-table > .v-table__wrapper > table > tbody > tr > th, .v-table > .v-table__wrapper > table > thead > tr > th, .v-table > .v-table__wrapper > table > tfoot > tr > th {
+  font-weight: 700;
+}
+
+.v-card--variant-outlined {
+  border: 1px solid rgba(0, 0, 0, .38);
+}
