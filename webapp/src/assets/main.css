@@ -4,10 +4,12 @@
   --v-field-padding-bottom: 12px;
 }
 
-.v-table > .v-table__wrapper > table > tbody > tr > th, .v-table > .v-table__wrapper > table > thead > tr > th, .v-table > .v-table__wrapper > table > tfoot > tr > th {
+.v-table > .v-table__wrapper > table > tbody > tr > th,
+.v-table > .v-table__wrapper > table > thead > tr > th,
+.v-table > .v-table__wrapper > table > tfoot > tr > th {
   font-weight: 700;
 }
 
 .v-card--variant-outlined {
-  border: 1px solid rgba(0, 0, 0, .38);
+  border: 1px solid rgba(0, 0, 0, 0.38);
 }

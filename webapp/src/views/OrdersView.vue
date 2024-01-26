@@ -36,16 +36,16 @@
       <template v-slot:[`item.totalAmount`]="{ value }">
         <span>{{ formatCurrency(value) }}</span>
       </template>
-      
-      <template v-slot:bottom="{page, pageCount, itemsPerPage, setItemsPerPage}">
+
+      <template v-slot:bottom="{ page, pageCount, itemsPerPage, setItemsPerPage }">
         <v-divider />
-        <custom-pagination 
+        <custom-pagination
           :page-count="pageCount"
           :page="page"
           :items-length="totalItems"
           :items-per-page="itemsPerPage"
           @update:items-per-page="setItemsPerPage"
-          @update:page="(e) => currentPage = e"
+          @update:page="(e) => (currentPage = e)"
         />
       </template>
     </v-data-table-server>
@@ -78,29 +78,29 @@ const loading = ref<boolean>(false)
 const search = ref<string>('')
 const dateRangeStart = ref<Date | undefined>()
 const dateRangeEnd = ref<Date | undefined>()
-const tableParam = ref();
-const currentPage = ref(1);
+const tableParam = ref()
+const currentPage = ref(1)
 let debounce: any
 
 const loadItems = (params: any) => {
-  tableParam.value = params;
+  tableParam.value = params
   getData()
 }
 
 const getData = async () => {
   try {
-    loading.value = true;
-    const {
-      itemsPerPage: pageSize,
-      page: pageNumber,
-      sortBy: sortObj
-    } = tableParam.value;
-    let sortBy: string | undefined, sortDirection: string | undefined;
+    loading.value = true
+    const { itemsPerPage: pageSize, page: pageNumber, sortBy: sortObj } = tableParam.value
+    let sortBy: string | undefined, sortDirection: string | undefined
     if (sortObj.length > 0) {
       sortBy = sortObj[0].key
       sortDirection = sortObj[0].order
     }
-    const {success, data: remoteData, totalRows} = await getOrders({
+    const {
+      success,
+      data: remoteData,
+      totalRows
+    } = await getOrders({
       pageNumber,
       pageSize,
       sortBy,
@@ -108,12 +108,12 @@ const getData = async () => {
       q: search.value,
       startDate: dateRangeStart.value,
       endDate: dateRangeEnd.value
-    });
-    if (!success) return;
+    })
+    if (!success) return
     totalItems.value = totalRows
-    data.value = remoteData;
+    data.value = remoteData
   } finally {
-    loading.value = false;
+    loading.value = false
   }
 }
 
@@ -127,7 +127,8 @@ const searchChange = () => {
 
 watch(search, searchChange)
 watch([dateRangeStart, dateRangeEnd], (newVal) => {
-  if (!newVal[0] === !newVal[1]) { // XNOR operator
+  if (!newVal[0] === !newVal[1]) {
+    // XNOR operator
     getData()
   }
 })

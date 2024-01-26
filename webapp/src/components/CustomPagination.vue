@@ -33,40 +33,40 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue';
+import { watch } from 'vue'
 
 const props = defineProps<{
-  itemsLength: number,
-  itemsPerPage: number,
-  page: number,
+  itemsLength: number
+  itemsPerPage: number
+  page: number
   pageCount: number
 }>()
 
-const emit = defineEmits([
-  'update:itemsPerPage',
-  'update:page'
-])
+const emit = defineEmits(['update:itemsPerPage', 'update:page'])
 
 const pageOptions = [
   { title: '5 / page', value: 5 },
   { title: '10 / page', value: 10 },
   { title: '20 / page', value: 20 },
   { title: '50 / page', value: 50 },
-  { title: '100 / page', value: 100 },
+  { title: '100 / page', value: 100 }
 ]
 
 const changePageNumber = (e: number | string) => {
   console.log('changePageNumber', e)
-  if (isNaN(+e)) return;
-  e = +e;
-  if (e <= 0) return;
+  if (isNaN(+e)) return
+  e = +e
+  if (e <= 0) return
   if (e > props.pageCount) {
-    e = props.pageCount;
+    e = props.pageCount
   }
   emit('update:page', e)
 }
 
-watch(() => props.page, (e) => {
-  emit('update:page', e)
-})
+watch(
+  () => props.page,
+  (e) => {
+    emit('update:page', e)
+  }
+)
 </script>

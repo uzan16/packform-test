@@ -1,6 +1,12 @@
 <template>
   <span class="text-subtitle-1 font-weight-bold">{{ props.label ?? 'Date Range Picker' }}</span>
-  <v-card class="d-flex flex-row align-center px-4" flat variant="outlined" :border="2" height="48px">
+  <v-card
+    class="d-flex flex-row align-center px-4"
+    flat
+    variant="outlined"
+    :border="2"
+    height="48px"
+  >
     <v-menu :close-on-content-click="false">
       <template v-slot:activator="{ props }">
         <v-text-field

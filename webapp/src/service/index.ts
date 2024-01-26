@@ -1,9 +1,9 @@
 export interface SuccessResponse {
-  success: boolean;
-  message: string;
+  success: boolean
+  message: string
 }
 
 export interface SuccessPaginateResponse<T> extends SuccessResponse {
-  data: Array<T>;
-  totalRows: number;
+  data: Array<T>
+  totalRows: number
 }
