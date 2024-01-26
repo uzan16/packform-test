@@ -1,6 +1,7 @@
 <template>
   <span class="text-subtitle-1 font-weight-bold">{{ props.label ?? 'Date Range Picker' }}</span>
   <v-card
+    data-testid="date-range-picker"
     class="d-flex flex-row align-center px-4"
     flat
     variant="outlined"
@@ -10,6 +11,7 @@
     <v-menu :close-on-content-click="false">
       <template v-slot:activator="{ props }">
         <v-text-field
+          data-testid="date-range-picker-start-date"
           placeholder="Start Date"
           variant="plain"
           hide-details
@@ -24,6 +26,7 @@
       </template>
       <template v-slot:default="{ isActive }">
         <v-date-picker
+          data-testid="date-range-picker-calendar-start"
           color="primary"
           v-model="startDate"
           :max="endDate"
@@ -36,6 +39,7 @@
     <v-menu :close-on-content-click="false">
       <template v-slot:activator="{ props }">
         <v-text-field
+          data-testid="date-range-picker-end-date"
           placeholder="End Date"
           variant="plain"
           hide-details
@@ -49,6 +53,7 @@
       </template>
       <template v-slot:default="{ isActive }">
         <v-date-picker
+          data-testid="date-range-picker-calendar-end"
           color="primary"
           v-model="endDate"
           :min="startDate"

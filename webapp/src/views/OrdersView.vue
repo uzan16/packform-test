@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column ga-6">
+  <div data-testid="view-orders" class="d-flex flex-column ga-6">
     <general-search v-model="search" />
     <v-row>
       <v-col cols="4">
@@ -12,6 +12,7 @@
     </v-row>
     <span class="text-body-1">Total Amount: </span>
     <v-data-table-server
+      data-testid="data-table"
       v-model:items-per-page="itemsPerPage"
       :headers="headers"
       :items-length="totalItems"

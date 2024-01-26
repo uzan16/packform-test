@@ -1,8 +1,9 @@
 <template>
-  <div class="d-flex flex-row justify-center align-center mt-4 ga-4">
+  <div data-testid="pagination" class="d-flex flex-row justify-center align-center mt-4 ga-4">
     <span class="text-body-2">Total: {{ props.itemsLength }}</span>
     <div class="d-flex flex-column">
       <v-select
+        data-testid="select-item-per-page"
         density="compact"
         :items="pageOptions"
         variant="outlined"
@@ -20,6 +21,7 @@
     <span class="text-body-2">Go to {{ props.page }}</span>
     <div class="d-flex flex-column">
       <v-text-field
+        data-testid="input-page-number"
         placeholder=""
         variant="outlined"
         hide-details
