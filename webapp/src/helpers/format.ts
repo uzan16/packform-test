@@ -31,6 +31,9 @@ export const formatDate = (date: Date) => {
 export const formatObjectToQuery = <T>(obj: T) => {
   if (typeof obj !== 'object') return ''
 
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+
   let str = ''
   for (const key in obj) {
     let val: any = obj[key]

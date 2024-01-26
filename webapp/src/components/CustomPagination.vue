@@ -53,7 +53,6 @@ const pageOptions = [
 ]
 
 const changePageNumber = (e: number | string) => {
-  console.log('changePageNumber', e)
   if (isNaN(+e)) return
   e = +e
   if (e <= 0) return
